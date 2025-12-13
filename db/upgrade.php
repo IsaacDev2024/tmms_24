@@ -60,5 +60,56 @@ function xmldb_block_tmms_24_upgrade($oldversion) {
         upgrade_block_savepoint(true, 2025120901, 'tmms_24');
     }
 
+    if ($oldversion < 2025121201) {
+        // Modify existing tmms_24 table to support auto-save
+        $table = new xmldb_table('tmms_24');
+        
+        // Add is_completed field if it doesn't exist
+        $field = new xmldb_field('is_completed', XMLDB_TYPE_INTEGER, '1', null, XMLDB_NOTNULL, null, '1');
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
+            // Set all existing records as completed
+            $DB->execute("UPDATE {tmms_24} SET is_completed = 1");
+        }
+        
+        // Modify item fields to allow NULL for partial saves
+        for ($i = 1; $i <= 24; $i++) {
+            $field = new xmldb_field('item' . $i, XMLDB_TYPE_INTEGER, '1', null, null, null, null);
+            if ($dbman->field_exists($table, $field)) {
+                $dbman->change_field_notnull($table, $field);
+            }
+        }
+        
+        // Modify age and gender to allow NULL initially
+        $field = new xmldb_field('age', XMLDB_TYPE_INTEGER, '3', null, null, null, null);
+        if ($dbman->field_exists($table, $field)) {
+            $dbman->change_field_notnull($table, $field);
+        }
+        
+        $field = new xmldb_field('gender', XMLDB_TYPE_CHAR, '20', null, null, null, null);
+        if ($dbman->field_exists($table, $field)) {
+            $dbman->change_field_notnull($table, $field);
+        }
+        
+        // Modify score fields to allow NULL initially
+        $field = new xmldb_field('percepcion_score', XMLDB_TYPE_INTEGER, '2', null, null, null, null);
+        if ($dbman->field_exists($table, $field)) {
+            $dbman->change_field_notnull($table, $field);
+        }
+        
+        $field = new xmldb_field('comprension_score', XMLDB_TYPE_INTEGER, '2', null, null, null, null);
+        if ($dbman->field_exists($table, $field)) {
+            $dbman->change_field_notnull($table, $field);
+        }
+        
+        $field = new xmldb_field('regulacion_score', XMLDB_TYPE_INTEGER, '2', null, null, null, null);
+        if ($dbman->field_exists($table, $field)) {
+            $dbman->change_field_notnull($table, $field);
+        }
+
+        // TMMS-24 savepoint reached.
+        upgrade_block_savepoint(true, 2025121201, 'tmms_24');
+    }
+
     return true;
 }
