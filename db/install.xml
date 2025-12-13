@@ -10,34 +10,35 @@
         <FIELD NAME="user" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="id" NEXT="course"/>
         <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" PREVIOUS="user" NEXT="age"/>
         <FIELD NAME="age" TYPE="int" LENGTH="3" NOTNULL="false" SEQUENCE="false" PREVIOUS="course" NEXT="gender"/>
-        <FIELD NAME="gender" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" PREVIOUS="age" NEXT="item1"/>
-        <FIELD NAME="item1" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="gender" NEXT="item2"/>
-        <FIELD NAME="item2" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item1" NEXT="item3"/>
-        <FIELD NAME="item3" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item2" NEXT="item4"/>
-        <FIELD NAME="item4" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item3" NEXT="item5"/>
-        <FIELD NAME="item5" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item4" NEXT="item6"/>
-        <FIELD NAME="item6" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item5" NEXT="item7"/>
-        <FIELD NAME="item7" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item6" NEXT="item8"/>
-        <FIELD NAME="item8" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item7" NEXT="item9"/>
-        <FIELD NAME="item9" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item8" NEXT="item10"/>
-        <FIELD NAME="item10" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item9" NEXT="item11"/>
-        <FIELD NAME="item11" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item10" NEXT="item12"/>
-        <FIELD NAME="item12" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item11" NEXT="item13"/>
-        <FIELD NAME="item13" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item12" NEXT="item14"/>
-        <FIELD NAME="item14" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item13" NEXT="item15"/>
-        <FIELD NAME="item15" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item14" NEXT="item16"/>
-        <FIELD NAME="item16" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item15" NEXT="item17"/>
-        <FIELD NAME="item17" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item16" NEXT="item18"/>
-        <FIELD NAME="item18" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item17" NEXT="item19"/>
-        <FIELD NAME="item19" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item18" NEXT="item20"/>
-        <FIELD NAME="item20" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item19" NEXT="item21"/>
-        <FIELD NAME="item21" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item20" NEXT="item22"/>
-        <FIELD NAME="item22" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item21" NEXT="item23"/>
-        <FIELD NAME="item23" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item22" NEXT="item24"/>
-        <FIELD NAME="item24" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" PREVIOUS="item23" NEXT="percepcion_score"/>
-        <FIELD NAME="percepcion_score" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false" PREVIOUS="item24" NEXT="comprension_score"/>
-        <FIELD NAME="comprension_score" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false" PREVIOUS="percepcion_score" NEXT="regulacion_score"/>
-        <FIELD NAME="regulacion_score" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false" PREVIOUS="comprension_score" NEXT="created_at"/>
+        <FIELD NAME="gender" TYPE="char" LENGTH="20" NOTNULL="false" SEQUENCE="false" PREVIOUS="age" NEXT="is_completed"/>
+        <FIELD NAME="is_completed" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="gender" NEXT="item1"/>
+        <FIELD NAME="item1" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="is_completed" NEXT="item2"/>
+        <FIELD NAME="item2" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item1" NEXT="item3"/>
+        <FIELD NAME="item3" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item2" NEXT="item4"/>
+        <FIELD NAME="item4" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item3" NEXT="item5"/>
+        <FIELD NAME="item5" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item4" NEXT="item6"/>
+        <FIELD NAME="item6" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item5" NEXT="item7"/>
+        <FIELD NAME="item7" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item6" NEXT="item8"/>
+        <FIELD NAME="item8" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item7" NEXT="item9"/>
+        <FIELD NAME="item9" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item8" NEXT="item10"/>
+        <FIELD NAME="item10" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item9" NEXT="item11"/>
+        <FIELD NAME="item11" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item10" NEXT="item12"/>
+        <FIELD NAME="item12" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item11" NEXT="item13"/>
+        <FIELD NAME="item13" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item12" NEXT="item14"/>
+        <FIELD NAME="item14" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item13" NEXT="item15"/>
+        <FIELD NAME="item15" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item14" NEXT="item16"/>
+        <FIELD NAME="item16" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item15" NEXT="item17"/>
+        <FIELD NAME="item17" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item16" NEXT="item18"/>
+        <FIELD NAME="item18" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item17" NEXT="item19"/>
+        <FIELD NAME="item19" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item18" NEXT="item20"/>
+        <FIELD NAME="item20" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item19" NEXT="item21"/>
+        <FIELD NAME="item21" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item20" NEXT="item22"/>
+        <FIELD NAME="item22" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item21" NEXT="item23"/>
+        <FIELD NAME="item23" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item22" NEXT="item24"/>
+        <FIELD NAME="item24" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" PREVIOUS="item23" NEXT="percepcion_score"/>
+        <FIELD NAME="percepcion_score" TYPE="int" LENGTH="2" NOTNULL="false" SEQUENCE="false" PREVIOUS="item24" NEXT="comprension_score"/>
+        <FIELD NAME="comprension_score" TYPE="int" LENGTH="2" NOTNULL="false" SEQUENCE="false" PREVIOUS="percepcion_score" NEXT="regulacion_score"/>
+        <FIELD NAME="regulacion_score" TYPE="int" LENGTH="2" NOTNULL="false" SEQUENCE="false" PREVIOUS="comprension_score" NEXT="created_at"/>
         <FIELD NAME="created_at" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="regulacion_score" NEXT="updated_at"/>
         <FIELD NAME="updated_at" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="created_at" />
       </FIELDS>
