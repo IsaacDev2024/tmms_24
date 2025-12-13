@@ -20,7 +20,7 @@ $string['what_is_tmms24'] = '¿Qué es el TMMS-24?';
 $string['feature_24_questions'] = '24 preguntas breves';
 $string['feature_3_dimensions'] = '3 dimensiones evaluadas';
 $string['feature_instant_results'] = 'Resultados inmediatos';
-$string['start_test'] = 'Comenzar Test';
+$string['start_test'] = 'Iniciar Test';
 
 // Etiquetas e instrucciones del formulario
 $string['instructions_title'] = 'Instrucciones del Test';
@@ -98,7 +98,7 @@ $string['item24'] = 'Cuando estoy enfadado trato de cambiar mi estado de ánimo.
 $string['all_results_title'] = 'TMMS-24: Todos los Resultados';
 $string['all_results_heading'] = 'Dashboard TMMS-24';
 $string['statistics'] = 'Estadísticas';
-$string['total_completed'] = 'Total Completados';
+$string['total_completed'] = 'Total Completado';
 $string['avg_perception'] = 'Percepción Promedio';
 $string['avg_comprehension'] = 'Comprensión Promedio';
 $string['avg_regulation'] = 'Regulación Promedio';
@@ -112,7 +112,6 @@ $string['your_results'] = 'Tus Resultados';
 $string['view_detailed_results'] = 'Ver Resultados Detallados';
 
 // Visualización mejorada del bloque
-$string['emotional_intelligence_test'] = 'Test de Inteligencia Emocional';
 $string['your_emotional_intelligence'] = 'Tu Inteligencia Emocional';
 $string['your_top_dimension'] = 'Tu Dimensión Más Alta';
 $string['other_dimensions'] = 'Otras Dimensiones';
@@ -126,7 +125,6 @@ $string['what_you_will_discover'] = 'Qué descubrirás:';
 $string['perception_ability'] = 'Tu capacidad de percepción emocional';
 $string['comprehension_ability'] = 'Tu comprensión de emociones';
 $string['regulation_ability'] = 'Tu regulación emocional';
-$string['start_test'] = 'Iniciar Test';
 $string['points'] = 'puntos';
 $string['date_not_available'] = 'Fecha no disponible';
 
@@ -186,7 +184,6 @@ $string['validation_age_required'] = 'La edad es requerida';
 $string['validation_gender_required'] = 'El género es requerido';
 $string['validation_missing_items'] = 'Por favor responda todas las preguntas';
 $string['disclaimer'] = 'Este test es solo para propósitos educativos y no constituye una evaluación psicológica profesional.';
-$string['legal_notice'] = 'Escala TMMS-24 desarrollada por Salovey, Mayer, Goldman, Turvey, y Palfai (1995).';
 $string['results_for_male'] = 'Resultados para Hombre';
 $string['results_for_female'] = 'Resultados para Mujer';
 $string['please_answer_item'] = 'Por favor responda este ítem';
@@ -194,43 +191,19 @@ $string['validation_required'] = 'Por favor complete todos los campos requeridos
 $string['test_saved_successfully'] = '¡Test guardado exitosamente!';
 $string['error_saving_test'] = 'Error al guardar el test. Por favor intente nuevamente.';
 
-// Export y cadenas de dimensiones
-$string['dimension_perception'] = 'Percepción Emocional';
-$string['dimension_comprehension'] = 'Comprensión Emocional';
-$string['dimension_regulation'] = 'Regulación Emocional';
-$string['invalid_export_format'] = 'Formato de exportación inválido';
-
 // Cadenas adicionales de view.php  
-$string['disclaimer'] = 'Esta prueba proporciona una evaluación general de la inteligencia emocional. Los resultados deben interpretarse en contexto.';
 $string['legal_notice'] = 'Basado en la escala TMMS-24 de Salovey et al. Solo para propósitos educativos.';
 $string['test_completed'] = 'Prueba Completada Exitosamente';
-$string['view_full_results'] = 'Ver Resultados Completos';
 
 // Cadenas adicionales de resultados de estudiantes
-$string['back_to_teacher_view'] = 'Volver a Vista de Profesor';
-$string['results_for'] = 'Resultados para';
-$string['student_not_completed'] = 'Este estudiante aún no ha completado la prueba.';
-$string['date_completed'] = 'Fecha de Finalización';
-$string['detailed_responses'] = 'Respuestas Detalladas';
 $string['results_interpretation'] = 'Interpretación de Resultados';
 
 // Cadenas generales
-$string['not_determined'] = 'No determinado';
 $string['download'] = 'Descargar';
 $string['test_already_completed'] = 'Ya has completado esta prueba. Solo puedes tomarla una vez.';
 $string['student_results'] = 'Resultados del Estudiante';
 $string['response_deleted_success'] = 'Respuesta de {$a} eliminada exitosamente.';
 $string['item_not_found'] = 'Ítem {$a} no disponible';
-
-// Cadenas adicionales para teacher_view.php
-$string['statistics'] = 'Estadísticas';
-$string['enrolled_students'] = 'Estudiantes Inscritos';
-$string['total_completed'] = 'Total Completado';
-$string['dimension_statistics'] = 'Estadísticas por Dimensión';
-$string['average_score'] = 'Puntuación Promedio';
-$string['must_improve'] = 'Debe Mejorar';
-$string['error_deleting_response'] = 'Error al eliminar la respuesta';
-$string['no_results_yet'] = 'Aún no hay resultados disponibles';
 
 // Nuevas interpretaciones detalladas TMMS-24
 $string['perception_difficulty_feeling'] = 'Dificultad para sentir/expresar emociones';
