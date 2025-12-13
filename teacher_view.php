@@ -41,16 +41,60 @@ foreach ($enrolled_users as $user) {
     }
 }
 
-// Get results only for enrolled students
-$results = array();
+// Get results only for enrolled students (both completed and in progress)
+$all_results = array();
+$results_completed = array();
+$results_in_progress = array();
+$all_filtered_results = array();
 if (!empty($student_ids)) {
     list($insql, $params) = $DB->get_in_or_equal($student_ids, SQL_PARAMS_NAMED);
-    $results = $DB->get_records_select('tmms_24', "user $insql", $params);
+    $all_results = $DB->get_records_select('tmms_24', "user $insql", $params);
+    
+    // Separate completed from in-progress (only count in-progress if has at least 1 answer)
+    foreach ($all_results as $result) {
+        if ($result->is_completed == 1) {
+            $results_completed[] = $result;
+        } else {
+            // Count answered questions to determine if really in progress
+            $answered_count = 0;
+            for ($i = 1; $i <= 24; $i++) {
+                $item = 'item' . $i;
+                if (isset($result->$item) && $result->$item !== null) {
+                    $answered_count++;
+                }
+            }
+            // Only add to in_progress if at least 1 question answered
+            if ($answered_count > 0) {
+                $results_in_progress[] = $result;
+            }
+        }
+    }
+    
+    // Merge both arrays and sort by last action date DESC (most recent first)
+    $all_filtered_results = array_merge($results_completed, $results_in_progress);
+    usort($all_filtered_results, function($a, $b) {
+        // For completed tests, use created_at; for in-progress, use updated_at (or created_at if not set)
+        $a_time = ($a->is_completed == 1) ? $a->created_at : (isset($a->updated_at) && $a->updated_at ? $a->updated_at : $a->created_at);
+        $b_time = ($b->is_completed == 1) ? $b->created_at : (isset($b->updated_at) && $b->updated_at ? $b->updated_at : $b->created_at);
+        return $b_time - $a_time;
+    });
+    
+    // Update the arrays to use the sorted merged list
+    $results_completed = array();
+    $results_in_progress = array();
+    foreach ($all_filtered_results as $result) {
+        if ($result->is_completed == 1) {
+            $results_completed[] = $result;
+        } else {
+            $results_in_progress[] = $result;
+        }
+    }
 }
 
 // Calculate statistics
 $total_enrolled = count($student_ids);
-$total_completed = count($results);
+$total_completed = count($results_completed);
+$total_in_progress = count($results_in_progress);
 $completion_rate = $total_enrolled > 0 ? ($total_completed / $total_enrolled) * 100 : 0;
 
 // Statistics cards
@@ -84,14 +128,13 @@ echo '</div>';
 echo '</div>';
 echo '</div>';
 
-// Pending tests
-$total_pending = $total_enrolled - $total_completed;
+// In progress tests
 echo '<div class="col-md-3 col-sm-6 mb-3">';
 echo '<div class="card border-warning">';
 echo '<div class="card-body text-center">';
-echo '<i class="fa fa-clock text-warning" style="font-size: 2em;"></i>';
-echo '<h3 class="mt-2 mb-1">' . $total_pending . '</h3>';
-echo '<p class="text-muted mb-0">' . get_string('pending', 'block_tmms_24') . '</p>';
+echo '<i class="fa fa-hourglass-half text-warning" style="font-size: 2em;"></i>';
+echo '<h3 class="mt-2 mb-1">' . $total_in_progress . '</h3>';
+echo '<p class="text-muted mb-0">' . get_string('in_progress', 'block_tmms_24') . '</p>';
 echo '</div>';
 echo '</div>';
 echo '</div>';
@@ -100,7 +143,7 @@ echo '</div>';
 echo '<div class="col-md-3 col-sm-6 mb-3">';
 echo '<div class="card border-info">';
 echo '<div class="card-body text-center">';
-echo '<i class="fa fa-chart-pie text-info" style="font-size: 2em;"></i>';
+echo '<i class="fa fa-percent text-info" style="font-size: 2em;"></i>';
 echo '<h3 class="mt-2 mb-1">' . number_format($completion_rate, 1) . '%</h3>';
 echo '<p class="text-muted mb-0">' . get_string('completion_rate', 'block_tmms_24') . '</p>';
 echo '</div>';
@@ -109,8 +152,8 @@ echo '</div>';
 
 echo '</div>';
 
-if (!empty($results)) {
-    // Average scores statistics
+if (!empty($results_completed)) {
+    // Average scores statistics (only for completed tests)
     $avg_scores = ['percepcion' => 0, 'comprension' => 0, 'regulacion' => 0];
     $score_distributions = [
         'percepcion' => ['difficulty' => 0, 'adequate' => 0, 'excellent_excessive' => 0],
@@ -118,7 +161,7 @@ if (!empty($results)) {
         'regulacion' => ['difficulty' => 0, 'adequate' => 0, 'excellent' => 0]
     ];
     
-    foreach ($results as $result) {
+    foreach ($results_completed as $result) {
         // Calculate scores from individual item responses
         $responses = [];
         for ($i = 1; $i <= 24; $i++) {
@@ -233,15 +276,16 @@ if (!empty($results)) {
     echo '</div>';
     echo '</div>';
 
-    // Results table with management capabilities
+    // Results table with management capabilities (include both completed and in progress)
     $table = new flexible_table('block_tmms_24_report');
-    $table->define_columns(array('user', 'perception', 'comprehension', 'regulation', 'completed', 'viewresults', 'download', 'actions'));
+    $table->define_columns(array('user', 'status', 'perception', 'comprehension', 'regulation', 'last_action', 'viewresults', 'download', 'actions'));
     $table->define_headers(array(
-        get_string('student', 'block_tmms_24'), 
+        get_string('student', 'block_tmms_24'),
+        get_string('status', 'block_tmms_24'),
         get_string('perception', 'block_tmms_24'),
         get_string('comprehension', 'block_tmms_24'),
         get_string('regulation', 'block_tmms_24'),
-        get_string('date_completed', 'block_tmms_24'),
+        get_string('date_last_action', 'block_tmms_24'),
         get_string('view_results', 'block_tmms_24'),
         get_string('download', 'block_tmms_24'),
         get_string('actions', 'block_tmms_24')
@@ -250,23 +294,56 @@ if (!empty($results)) {
     $table->define_baseurl($PAGE->url);
     $table->setup();
 
-    foreach ($results as $result) {
+    // Combine completed and in-progress results for the table
+    $all_table_results = !empty($all_filtered_results)
+        ? $all_filtered_results
+        : array_merge($results_completed, $results_in_progress);
+    
+    foreach ($all_table_results as $result) {
         $user = $DB->get_record('user', ['id' => $result->user], 'id, firstname, lastname, picture, imagealt, firstnamephonetic, lastnamephonetic, middlename, alternatename, email');
         if (!$user) {
             continue;
         }
         
-        // Calculate scores
-        $responses = [];
+        $is_completed = ($result->is_completed == 1);
+        
+        // Count answered questions
+        $answered_count = 0;
         for ($i = 1; $i <= 24; $i++) {
             $item = 'item' . $i;
-            $responses[] = $result->$item;
+            if (isset($result->$item) && $result->$item !== null) {
+                $answered_count++;
+            }
         }
-        $scores = TMMS24Facade::calculate_scores($responses);
+        
+        // Status badge with progress counter (only in-progress items reach here)
+        if ($is_completed) {
+            $status_badge = '<span class="badge badge-success"><i class="fa fa-check"></i> ' . get_string('completed', 'block_tmms_24') . '</span>';
+        } else {
+            $status_badge = '<span class="badge badge-warning"><i class="fa fa-hourglass-half"></i> ' . 
+                           get_string('in_progress', 'block_tmms_24') . ' (' . $answered_count . '/24)</span>';
+        }
+        
+        // Calculate scores (only if completed)
+        $perception_score = '-';
+        $comprehension_score = '-';
+        $regulation_score = '-';
+        
+        if ($is_completed) {
+            $responses = [];
+            for ($i = 1; $i <= 24; $i++) {
+                $item = 'item' . $i;
+                $responses[] = $result->$item;
+            }
+            $scores = TMMS24Facade::calculate_scores($responses);
+            $perception_score = $scores['percepcion'];
+            $comprehension_score = $scores['comprension'];
+            $regulation_score = $scores['regulacion'];
+        }
         
         $usercell = $OUTPUT->user_picture($user, array('size' => 35, 'courseid' => $courseid)) . ' ' . fullname($user);
         
-        // View results button
+        // View results button (enable for both completed and in-progress)
         $viewresultsurl = new moodle_url('/blocks/tmms_24/student_results.php', array(
             'courseid' => $courseid,
             'userid' => $result->user
@@ -276,7 +353,7 @@ if (!empty($results)) {
             $viewresultsurl, 
             $OUTPUT->pix_icon('i/report', get_string('view_results', 'block_tmms_24')),
             array(
-                'class' => 'btn btn-sm btn-outline-primary',
+                'class' => 'btn btn-sm btn-outline-primary tmms-view-results',
                 'title' => get_string('view_results', 'block_tmms_24')
             )
         );
@@ -294,50 +371,67 @@ if (!empty($results)) {
                 $deleteurl, 
                 $OUTPUT->pix_icon('t/delete', get_string('delete_response', 'block_tmms_24')),
                 array(
-                    'class' => 'btn btn-sm btn-outline-danger',
+                    'class' => 'btn btn-sm btn-outline-danger tmms-delete-btn',
                     'title' => get_string('delete_response', 'block_tmms_24'),
                     'onclick' => 'return confirm("' . get_string('delete_response_confirm', 'block_tmms_24', fullname($user)) . '");'
                 )
             );
         }
 
-        // Download buttons for individual student
-        $downloadcsvurl = new moodle_url('/blocks/tmms_24/export.php', array(
-            'cid' => $courseid,
-            'userid' => $result->user,
-            'format' => 'csv'
-        ));
-        
-        $downloadjsonurl = new moodle_url('/blocks/tmms_24/export.php', array(
-            'cid' => $courseid,
-            'userid' => $result->user,
-            'format' => 'json'
-        ));
-        
-        $downloadbuttons = html_writer::link(
-            $downloadcsvurl, 
-            $OUTPUT->pix_icon('i/export', 'CSV'),
-            array(
-                'class' => 'btn btn-sm btn-outline-success me-1',
-                'title' => 'Download CSV'
-            )
-        );
-        
-        $downloadbuttons .= html_writer::link(
-            $downloadjsonurl, 
-            $OUTPUT->pix_icon('i/export', 'JSON'),
-            array(
-                'class' => 'btn btn-sm btn-outline-success',
-                'title' => 'Download JSON'
-            )
-        );
+        // Download buttons for individual student (disabled if not completed)
+        if ($is_completed) {
+            $downloadcsvurl = new moodle_url('/blocks/tmms_24/export.php', array(
+                'cid' => $courseid,
+                'userid' => $result->user,
+                'format' => 'csv'
+            ));
+            
+            $downloadjsonurl = new moodle_url('/blocks/tmms_24/export.php', array(
+                'cid' => $courseid,
+                'userid' => $result->user,
+                'format' => 'json'
+            ));
+            
+            $downloadbuttons = html_writer::link(
+                $downloadcsvurl, 
+                '<i class="fa fa-file-excel-o"></i> CSV',
+                array(
+                    'class' => 'btn btn-sm btn-success me-1',
+                    'title' => 'Download CSV'
+                )
+            );
+            
+            $downloadbuttons .= html_writer::link(
+                $downloadjsonurl, 
+                '<i class="fa fa-file-code-o"></i> JSON',
+                array(
+                    'class' => 'btn btn-sm btn-info',
+                    'title' => 'Download JSON'
+                )
+            );
+        } else {
+            $downloadbuttons = '<button class="btn btn-sm btn-secondary me-1" disabled title="' . get_string('test_not_completed_yet', 'block_tmms_24') . '">' .
+                              '<i class="fa fa-file-excel-o"></i> CSV</button>' .
+                              '<button class="btn btn-sm btn-secondary" disabled title="' . get_string('test_not_completed_yet', 'block_tmms_24') . '">' .
+                              '<i class="fa fa-file-code-o"></i> JSON</button>';
+        }
 
+        // Date cell - show created_at if completed, updated_at if in progress
+        if ($is_completed) {
+            $date_cell = userdate($result->created_at, get_string('strftimedatetimeshort'));
+        } else {
+            // For in-progress, show updated_at (last modification date)
+            $date_cell = isset($result->updated_at) && $result->updated_at ? 
+                        userdate($result->updated_at, get_string('strftimedatetimeshort')) : '-';
+        }
+        
         $row = array(
             $usercell,
-            $scores['percepcion'],
-            $scores['comprension'],
-            $scores['regulacion'],
-            userdate($result->created_at, get_string('strftimedatetimeshort')),
+            $status_badge,
+            $perception_score,
+            $comprehension_score,
+            $regulation_score,
+            $date_cell,
             $viewresultsbutton,
             $downloadbuttons,
             $deletebutton
@@ -351,5 +445,27 @@ if (!empty($results)) {
     echo get_string('no_results_yet', 'block_tmms_24');
     echo '</div>';
 }
+
+// Add custom CSS for button colors (Cognitio theme compatibility)
+echo '<style>
+.tmms-view-results {
+    color: #e91e63 !important;
+    border-color: #e91e63 !important;
+}
+.tmms-view-results:hover {
+    background-color: #e91e63 !important;
+    color: white !important;
+    border-color: #e91e63 !important;
+}
+.tmms-delete-btn {
+    color: #dc3545 !important;
+    border-color: #dc3545 !important;
+}
+.tmms-delete-btn:hover {
+    background-color: #dc3545 !important;
+    color: white !important;
+    border-color: #dc3545 !important;
+}
+</style>';
 
 echo $OUTPUT->footer();
