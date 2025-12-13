@@ -1,8 +1,8 @@
 <?php
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2025120901;  // YYYYMMDDHH (year, month, day, hour)
-$plugin->requires  = 2022112800;        // Requires this Moodle version (4.1)
-$plugin->component = 'block_tmms_24';   // Full name of the plugin
+$plugin->version = 2025121201;
+$plugin->requires  = 2022112800; 
+$plugin->component = 'block_tmms_24';
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = '2.2.4';           // Human-readable version name
+$plugin->release   = '2.3.0';
