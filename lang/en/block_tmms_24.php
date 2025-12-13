@@ -104,7 +104,6 @@ $string['avg_comprehension'] = 'Average Comprehension';
 $string['avg_regulation'] = 'Average Regulation';
 $string['download_all_csv'] = 'Download All Results (CSV)';
 $string['user'] = 'User';
-$string['date_completed'] = 'Date Completed';
 $string['no_results_yet'] = 'No results submitted yet.';
 
 // Student results strings  
@@ -112,7 +111,6 @@ $string['your_results'] = 'Your Results';
 $string['view_detailed_results'] = 'View Detailed Results';
 
 // Enhanced block display
-$string['emotional_intelligence_test'] = 'Emotional Intelligence Test';
 $string['your_emotional_intelligence'] = 'Your Emotional Intelligence';
 $string['your_top_dimension'] = 'Your Top Dimension';
 $string['other_dimensions'] = 'Other Dimensions';
@@ -126,7 +124,6 @@ $string['what_you_will_discover'] = 'What you will discover:';
 $string['perception_ability'] = 'Your emotional perception ability';
 $string['comprehension_ability'] = 'Your emotional comprehension';
 $string['regulation_ability'] = 'Your emotional regulation';
-$string['start_test'] = 'Start Test';
 $string['points'] = 'points';
 $string['date_not_available'] = 'Date not available';
 
@@ -186,7 +183,6 @@ $string['validation_age_required'] = 'Age is required';
 $string['validation_gender_required'] = 'Gender is required';
 $string['validation_missing_items'] = 'Please answer all questions';
 $string['disclaimer'] = 'This test is for educational purposes only and does not constitute professional psychological assessment.';
-$string['legal_notice'] = 'TMMS-24 scale developed by Salovey, Mayer, Goldman, Turvey, and Palfai (1995).';
 $string['results_for_male'] = 'Results for Male';
 $string['results_for_female'] = 'Results for Female';
 $string['please_answer_item'] = 'Please answer this item';
@@ -194,43 +190,20 @@ $string['validation_required'] = 'Please complete all required fields';
 $string['test_saved_successfully'] = 'Test saved successfully!';
 $string['error_saving_test'] = 'Error saving test. Please try again.';
 
-// Export and dimension strings
-$string['dimension_perception'] = 'Emotional Perception';
-$string['dimension_comprehension'] = 'Emotional Comprehension';
-$string['dimension_regulation'] = 'Emotional Regulation';
-$string['invalid_export_format'] = 'Invalid export format';
-
 // View.php additional strings
-$string['disclaimer'] = 'This test provides a general assessment of emotional intelligence. Results should be interpreted in context.';
 $string['legal_notice'] = 'Based on the TMMS-24 scale by Salovey et al. For educational purposes only.';
 $string['test_completed'] = 'Test Completed Successfully';
-$string['view_full_results'] = 'View Full Results';
 
 // Student results additional strings  
-$string['back_to_teacher_view'] = 'Back to Teacher View';
-$string['results_for'] = 'Results for';
-$string['student_not_completed'] = 'This student has not completed the test yet.';
 $string['date_completed'] = 'Date Completed';
-$string['detailed_responses'] = 'Detailed Responses';
 $string['results_interpretation'] = 'Results Interpretation';
 
 // General strings
-$string['not_determined'] = 'Not determined';
 $string['download'] = 'Download';
 $string['test_already_completed'] = 'You have already completed this test. You can only take it once.';
 $string['student_results'] = 'Student Results';
 $string['item_not_found'] = 'Item {$a} not available';
 $string['response_deleted_success'] = 'Response from {$a} deleted successfully.';
-
-// Additional strings for teacher_view.php
-$string['statistics'] = 'Statistics';
-$string['enrolled_students'] = 'Enrolled Students';
-$string['total_completed'] = 'Total Completed';
-$string['dimension_statistics'] = 'Statistics by Dimension';
-$string['average_score'] = 'Average Score';
-$string['must_improve'] = 'Must Improve';
-$string['error_deleting_response'] = 'Error deleting response';
-$string['no_results_yet'] = 'No results available yet';
 
 // New detailed TMMS-24 interpretations
 $string['perception_difficulty_feeling'] = 'Difficulty feeling/expressing emotions';
