@@ -41,7 +41,7 @@ if ($userid > 0) {
 } else if (!empty($enrolled_ids)) {
     // Export for all enrolled students
     list($insql, $params) = $DB->get_in_or_equal($enrolled_ids, SQL_PARAMS_NAMED);
-    $all_entries = $DB->get_records_select('tmms_24', "user $insql", $params, 'created_at DESC');
+    $all_entries = $DB->get_records_select('tmms_24', "user $insql AND is_completed = 1", $params, 'created_at DESC');
 }
 
 if (empty($all_entries)) {
