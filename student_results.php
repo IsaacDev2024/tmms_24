@@ -37,13 +37,49 @@ echo '<h4 class="mb-0">' . get_string('results_for', 'block_tmms_24') . ' ' . fu
 echo '</div>';
 echo '<div class="card-body">';
 
-// Get student's test result (in any course)
+// Get student's test result (in any course) - both completed and in-progress
 $result = $DB->get_record('tmms_24', ['user' => $userid]);
 
 if (!$result) {
     echo '<div class="alert alert-info">';
     echo get_string('student_not_completed', 'block_tmms_24');
     echo '</div>';
+} else if ($result->is_completed == 0) {
+    // Test is in progress - show progress similar to CHASIDE
+    
+    // Calculate progress
+    $answered = 0;
+    for ($i = 1; $i <= 24; $i++) {
+        $field = "item{$i}";
+        if (isset($result->$field) && $result->$field !== null) {
+            $answered++;
+        }
+    }
+    $progress_percentage = round(($answered / 24) * 100, 1);
+    
+    echo '<div class="alert alert-warning" role="alert">';
+    echo '<h4 class="alert-heading"><i class="fa fa-clock-o"></i> ' . get_string('test_in_progress', 'block_tmms_24') . '</h4>';
+    echo '<p>' . get_string('test_in_progress_message', 'block_tmms_24', fullname($user)) . '</p>';
+    echo '<hr>';
+    echo '<p class="mb-1"><strong>' . get_string('progress_label', 'block_tmms_24') . ':</strong></p>';
+    echo '<div class="progress mb-2" style="height: 30px;">';
+    echo '<div class="progress-bar bg-warning" role="progressbar" style="width: ' . $progress_percentage . '%" aria-valuenow="' . $progress_percentage . '" aria-valuemin="0" aria-valuemax="100">';
+    echo '<strong>' . $progress_percentage . '%</strong>';
+    echo '</div>';
+    echo '</div>';
+    echo '<p><strong>' . get_string('has_answered', 'block_tmms_24') . ':</strong> ' . $answered . '/24 ' . get_string('questions', 'block_tmms_24') . '</p>';
+    
+    // Special message if all questions answered but not submitted
+    if ($answered == 24) {
+        echo '<div class="alert alert-info mt-2" role="alert">';
+        echo '<i class="fa fa-info-circle"></i> ';
+        echo '<strong>' . get_string('remind_submit_test', 'block_tmms_24') . '</strong>';
+        echo '</div>';
+    }
+    
+    echo '<p class="mb-0"><em>' . get_string('results_available_when_complete', 'block_tmms_24', fullname($user)) . '</em></p>';
+    echo '</div>';
+    
 } else {
     // Calculate scores from individual item responses
     $responses = [];
@@ -94,11 +130,15 @@ if (!$result) {
 
     // Test completion info
     echo '<div class="row mb-4">';
-    echo '<div class="col-md-6">';
+    echo '<div class="col-md-4">';
     echo '<strong>' . get_string('date_completed', 'block_tmms_24') . ':</strong> ';
     echo userdate($result->created_at, get_string('strftimedatetimeshort'));
     echo '</div>';
-    echo '<div class="col-md-6">';
+    echo '<div class="col-md-4">';
+    echo '<strong>' . get_string('age', 'block_tmms_24') . ':</strong> ';
+    echo $result->age ? $result->age : '-';
+    echo '</div>';
+    echo '<div class="col-md-4">';
     echo '<strong>' . get_string('gender', 'block_tmms_24') . ':</strong> ';
     
     // Convert gender code to display string
