@@ -6,26 +6,27 @@ $string['tmms_24:myaddinstance'] = 'Agregar un nuevo bloque TMMS-24 a la página
 $string['tmms_24:taketest'] = 'Realizar el test TMMS-24';
 $string['tmms_24:viewallresults'] = 'Ver todos los resultados TMMS-24';
 
+// Configuración
+$string['config_showdescriptions'] = 'Mostrar descripciones';
+$string['config_showdescriptions_help'] = 'Muestra u oculta los banners de descripción en el bloque.';
+
 // Contenido del bloque
-$string['test_title'] = 'Test de Inteligencia Emocional (TMMS-24)';
-$string['test_intro'] = 'Realiza el test TMMS-24 para evaluar tu inteligencia emocional en tres dimensiones: Percepción, Comprensión y Regulación.';
-$string['take_test'] = 'Realizar Test';
-$string['test_completed'] = 'Test Completado';
+$string['test_completed'] = 'Exploración de Habilidades Socioemocionales completada';
 $string['view_full_results'] = 'Ver Resultados Completos';
 $string['not_logged_in'] = 'Debes estar conectado para ver este contenido.';
-$string['emotional_intelligence_results'] = 'Tus Habilidades Socioemocionales';
+$string['emotional_intelligence_results'] = 'Mira tus resultados aquí';
 $string['your_star_dimensions'] = 'Tus Dimensiones Estrella';
 $string['your_dimensions'] = 'Tus Dimensiones';
-$string['discover_your_emotional_skills'] = 'Descubre tus habilidades emocionales';
-$string['what_is_tmms24'] = '¿Qué es TMMS-24?';
+$string['discover_your_emotional_skills'] = 'Descubre tu inteligencia emocional';
+$string['what_is_tmms24'] = '¿En qué consiste esta Exploración de Inteligencia Emocional?';
 $string['feature_24_questions'] = '24 preguntas breves';
 $string['feature_3_dimensions'] = '3 dimensiones evaluadas';
 $string['feature_instant_results'] = 'Resultados inmediatos';
-$string['start_test'] = 'Iniciar Test';
+$string['start_test'] = 'Iniciar Exploración';
 
 // Etiquetas e instrucciones del formulario
 $string['test_page_title'] = 'Explora tus habilidades socioemocionales';
-$string['instructions_title'] = 'Instrucciones del Test';
+$string['instructions_title'] = 'Instrucciones';
 $string['instructions_text'] = 'A continuación encontrarás afirmaciones sobre emociones y sentimientos. Indica tu nivel de acuerdo marcando la opción que mejor refleje tu opinión para cada ítem.';
 $string['instructions_text2'] = 'No hay respuestas correctas o incorrectas; responde con sinceridad y sin dedicar demasiado tiempo a cada ítem.';
 $string['scale_legend'] = 'Leyenda de la escala:';
@@ -116,14 +117,7 @@ $string['item23'] = 'Tengo mucha energía cuando me siento feliz.';
 $string['item24'] = 'Cuando estoy enfadado trato de cambiar mi estado de ánimo.';
 
 // Página de todos los resultados
-$string['all_results_title'] = 'TMMS-24: Todos los Resultados';
-$string['all_results_heading'] = 'Dashboard TMMS-24';
-$string['statistics'] = 'Estadísticas';
-$string['total_completed'] = 'Total Completados';
-$string['avg_perception'] = 'Percepción Promedio';
-$string['avg_comprehension'] = 'Comprensión Promedio';
-$string['avg_regulation'] = 'Regulación Promedio';
-$string['download_all_csv'] = 'Descargar Todos los Resultados (CSV)';
+$string['total_completed'] = 'Exploraciones Completadas';
 $string['user'] = 'Usuario';
 $string['date_completed'] = 'Fecha de Finalización';
 $string['date_last_action'] = 'Fecha de Última Acción';
@@ -133,16 +127,11 @@ $string['your_results'] = 'Tus Resultados';
 $string['view_detailed_results'] = 'Ver Resultados Detallados';
 
 // Visualización mejorada del bloque
-$string['emotional_intelligence_test'] = 'Test de Inteligencia Emocional';
+$string['emotional_intelligence_test'] = 'Exploración de Habilidades Socioemocionales';
 $string['your_star_dimension'] = 'Tu Dimensión Estrella';
 $string['your_top_dimension'] = 'Tu Dimensión Más Alta';
 $string['other_dimensions'] = 'Otras Dimensiones';
-$string['test_description_short'] = 'Esta herramienta evalúa tu inteligencia emocional a través de tres dimensiones clave: Comprensión, Percepción y Regulación. Su propósito es ayudarte a comprender y regular tus estados de ánimo, habilidades esenciales para gestionar el estrés y construir relaciones interpersonales más sanas y efectivas.';
-$string['duration_5_minutes'] = '~5 minutos de duración';
-$string['24_questions'] = '24 preguntas';
-$string['3_dimensions'] = '3 dimensiones evaluadas';
-$string['questions_24'] = '24 preguntas';
-$string['dimensions_3'] = '3 dimensiones evaluadas';
+$string['test_description_short'] = 'Este instrumento científico está diseñado para evaluar tu inteligencia emocional a través de tres dimensiones críticas: Percepción, Comprensión y Regulación. Más allá de medir emociones, este análisis te permite entender cómo percibes y gestionas tus estados de ánimo, una habilidad fundamental para el manejo del estrés, la mejora del bienestar personal y la construcción de vínculos sociales más efectivos y saludables.';
 $string['what_you_will_discover'] = 'Qué descubrirás:';
 $string['perception_ability'] = 'Tu capacidad de percepción emocional';
 $string['comprehension_ability'] = 'Tu comprensión de emociones';
@@ -159,20 +148,20 @@ $string['status'] = 'Estado';
 $string['completed_singular'] = 'Completado';
 $string['pending'] = 'Pendientes';
 $string['of'] = 'de';
-$string['students_completed'] = 'estudiantes completaron el test';
+$string['students_completed'] = 'estudiantes completaron la exploración';
 $string['recent_completions'] = 'Finalizados Recientemente';
 $string['view_all_results'] = 'Ir al Panel de Administración';
-$string['test_not_completed_yet'] = 'El test aún no ha sido completado';
-$string['test_in_progress'] = 'Test en Progreso';
-$string['test_in_progress_message'] = '{$a} ha comenzado el test pero aún no lo ha completado.';
+$string['test_not_completed_yet'] = 'La exploración aún no ha sido completada';
+$string['test_in_progress'] = 'Exploración en Progreso';
+$string['test_in_progress_message'] = '{$a} ha comenzado la exploración pero aún no la ha completado.';
 $string['progress_label'] = 'Progreso';
 $string['has_answered'] = 'Ha respondido';
 $string['questions'] = 'preguntas';
-$string['results_available_when_complete'] = 'Los resultados completos estarán disponibles cuando {$a} termine el test.';
-$string['remind_submit_test'] = 'Recuerdále al estudiante que debe hundir el botón de "Enviar Test" para que ver los resultados.';
+$string['results_available_when_complete'] = 'Los resultados completos estarán disponibles cuando {$a} termine la exploración.';
+$string['remind_submit_test'] = 'Recuerdále al estudiante que debe hundir el botón de "Enviar Exploración" para que ver los resultados.';
 
 // Mensajes de error
-$string['incomplete_data'] = 'Los datos del test están incompletos. Por favor, contacte al administrador.';
+$string['incomplete_data'] = 'Los datos de la exploración están incompletos. Por favor, contacte al administrador.';
 
 // Mensajes de error para exportación
 $string['invalidformat'] = 'Formato de exportación inválido.';
@@ -184,7 +173,7 @@ $string['dimension_comprehension'] = 'Comprensión Emocional';
 $string['dimension_regulation'] = 'Regulación Emocional';
 
 // Capacidades administrativas - Dashboard mejorado
-$string['admin_dashboard_description'] = 'Panel de administración del Test TMMS-24. Aquí puede ver estadísticas detalladas, gestionar respuestas de estudiantes y exportar datos.';
+$string['admin_dashboard_description'] = 'Panel de Administración de la Exploración de Habilidades Socioemocionales. Aquí puedes ver estadísticas detalladas, gestionar las respuestas de los estudiantes y exportar datos.';
 $string['enrolled_students'] = 'Total de Estudiantes';
 $string['dimension_statistics'] = 'Estadísticas por dimensión';
 $string['average_score'] = 'Puntuación promedio';
@@ -203,24 +192,24 @@ $string['download_json'] = 'Exportar JSON';
 $string['detailed_responses'] = 'Respuestas detalladas';
 $string['results_for'] = 'Resultados para';
 $string['back_to_teacher_view'] = 'Volver al Panel de Administración';
-$string['student_not_completed'] = 'El estudiante no ha completado el test aún.';
-$string['tmms_24_dashboard'] = 'Administración - Habilidades Socioemocionales';
+$string['student_not_completed'] = 'El estudiante no ha completado la exploración aún.';
+$string['tmms_24_dashboard'] = 'Administración - Exploración de Habilidades Socioemocionales';
 
 // Validación y envío del formulario
-$string['submit_test'] = 'Enviar Test';
+$string['submit_test'] = 'Enviar Exploración';
 $string['back_to_course'] = 'Volver al Curso';
 $string['items_completed'] = 'Ítems completados';
 $string['validation_age_required'] = 'La edad es requerida';
 $string['validation_gender_required'] = 'El género es requerido';
 $string['validation_missing_items'] = 'Por favor responda todas las preguntas';
-$string['disclaimer'] = 'Este test es solo para propósitos educativos y no constituye una evaluación psicológica profesional.';
-$string['legal_notice'] = 'Basado en la escala TMMS-24 de Salovey et al. Solo para propósitos educativos.';
+$string['disclaimer'] = 'Esta exploración es solo para propósitos educativos y no constituye una evaluación psicológica profesional.';
+$string['legal_notice'] = 'Basado en la escala de Salovey et al. Solo para propósitos educativos.';
 $string['results_for_male'] = 'Resultados para Hombre';
 $string['results_for_female'] = 'Resultados para Mujer';
 $string['please_answer_item'] = 'Por favor responda este ítem';
 $string['validation_required'] = 'Por favor complete todos los campos requeridos';
 $string['test_saved_successfully'] = 'Enhorabuena, ya puedes ver tus resultados.';
-$string['error_saving_test'] = 'Error al guardar el test. Por favor intente nuevamente.';
+$string['error_saving_test'] = 'Error al guardar la exploración. Por favor intente nuevamente.';
 
 // Access / redirects
 $string['teachers_cannot_take_test'] = 'Los profesores son redirigidos al panel de administración.';
@@ -230,14 +219,14 @@ $string['results_interpretation'] = 'Interpretación de Resultados';
 
 // Cadenas generales
 $string['download'] = 'Descargar';
-$string['test_already_completed'] = 'Ya has completado esta prueba. Solo puedes tomarla una vez.';
+$string['test_already_completed'] = 'Ya has completado esta exploración. Solo puedes tomarla una vez.';
 $string['student_results'] = 'Resultados del Estudiante';
 $string['item_not_found'] = 'Ítem {$a} no disponible';
 $string['response_scale_legend'] = 'Escala de Respuestas';
 
 // Cadenas adicionales para teacher_view.php
 $string['no_results_yet'] = 'Aún no hay resultados disponibles';
-$string['no_participants_message'] = 'Ningún estudiante ha comenzado el test aún.';
+$string['no_participants_message'] = 'Ningún estudiante ha comenzado la exploración aún.';
 
 // Interpretaciones TMMS-24 (cortas) para mostrar arriba
 $string['perception_difficulty_feeling'] = 'Dificultad para identificar o expresar emociones';
@@ -282,7 +271,7 @@ $string['excessive_category'] = 'Excesivo';
 $string['draft_found'] = 'Borrador Encontrado';
 $string['draft_found_message'] = 'Encontramos respuestas guardadas de una sesión anterior. Tu progreso se ha restaurado automáticamente.';
 $string['confirm_exit'] = 'Tienes cambios sin guardar. ¿Estás seguro de que quieres salir?';
-$string['continue_test'] = 'Continuar Test';
+$string['continue_test'] = 'Continuar Exploración';
 
 // Nombres de archivos exportables
 $string['export_filename'] = 'TMMS24_Inteligencia_Emocional';
@@ -304,10 +293,10 @@ $string['export_item'] = 'Ítem {$a}';
 
 // Nuevas cadenas para auto-guardado y flujo mejorado
 $string['all_answered_title'] = '¡Todas las preguntas respondidas!';
-$string['all_answered_message'] = 'Has respondido las 24 preguntas. ¡No olvides hacer clic en "Finalizar Test" para enviar tus respuestas y ver tus resultados de habilidades emocionales!';
+$string['all_answered_message'] = 'Has respondido las 24 preguntas. ¡No olvides hacer clic en "Finalizar Exploración" para enviar tus respuestas y ver tus resultados de habilidades emocionales!';
 $string['your_progress'] = 'Tu Progreso';
 $string['completed_status'] = 'completado';
-$string['finish_test'] = 'Finalizar Test';
+$string['finish_test'] = 'Finalizar Exploración';
 $string['saving'] = 'Guardando...';
 $string['saved'] = 'Guardado';
 $string['auto_save_enabled'] = 'Guardado automático activado';
@@ -316,7 +305,10 @@ $string['question_unanswered'] = 'Esta pregunta no ha sido respondida';
 $string['scale_legend_short'] = 'Escala: 1=Totalmente en desacuerdo | 2=En desacuerdo | 3=Neutral | 4=De acuerdo | 5=Totalmente de acuerdo';
 
 // Management view strings
-$string['management_title'] = 'Gestión del Test TMMS-24';
+$string['management_title'] = 'Gestión - Exploración de Habilidades Socioemocionales';
 $string['course_overview'] = 'Resumen del Curso';
 $string['question'] = 'Pregunta';
 $string['response'] = 'Respuesta';
+
+// View Individual Results Page
+$string['individual_results'] = 'Resultados Individuales de la Exploración de Habilidades Socioemocionales';
