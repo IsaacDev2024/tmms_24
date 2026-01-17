@@ -11,7 +11,7 @@ $string['config_showdescriptions'] = 'Mostrar descripciones';
 $string['config_showdescriptions_help'] = 'Muestra u oculta los banners de descripción en el bloque.';
 
 // Contenido del bloque
-$string['test_completed'] = 'Exploración de Habilidades Socioemocionales completada';
+$string['test_completed'] = 'Exploración de Habilidades Socioemocionales Completada';
 $string['view_full_results'] = 'Ver Resultados Completos';
 $string['not_logged_in'] = 'Debes estar conectado para ver este contenido.';
 $string['emotional_intelligence_results'] = 'Mira tus resultados aquí';
