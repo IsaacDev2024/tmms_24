@@ -36,12 +36,8 @@ $user = $DB->get_record('user', ['id' => $userid], '*', MUST_EXIST);
 
 $PAGE->set_url('/blocks/tmms_24/student_results.php', ['courseid' => $courseid, 'userid' => $userid]);
 $PAGE->set_pagelayout('incourse');
-$PAGE->set_title(get_string('student_results', 'block_tmms_24'));
-$PAGE->set_heading($course->fullname);
-$PAGE->navbar->add(get_string('pluginname', 'block_tmms_24'));
-$PAGE->navbar->add(get_string('all_results_title', 'block_tmms_24'), new moodle_url('/blocks/tmms_24/teacher_view.php', ['courseid' => $courseid]));
-$PAGE->navbar->add(get_string('student_results', 'block_tmms_24'));
-
+$PAGE->set_title(get_string('individual_results', 'block_tmms_24'));
+$PAGE->set_heading(get_string('individual_results', 'block_tmms_24'));
 $PAGE->requires->css('/blocks/tmms_24/styles.css');
 
 $result = $DB->get_record('tmms_24', ['user' => $userid]);
