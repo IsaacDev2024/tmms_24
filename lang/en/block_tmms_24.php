@@ -293,7 +293,7 @@ $string['export_item'] = 'Item {$a}';
 
 // New strings for auto-save and improved flow
 $string['all_answered_title'] = 'All questions answered!';
-$string['all_answered_message'] = 'You have answered all 24 questions. Don\'t forget to click "Finish Exploration" to submit your answers and see your emotional skills results!';
+$string['all_answered_message'] = 'You have answered all 24 questions. Don\'t forget to click "Finish Exploration" to submit your answers and view your emotional skills results!';
 $string['your_progress'] = 'Your Progress';
 $string['completed_status'] = 'completed';
 $string['finish_test'] = 'Finish Exploration';
