@@ -11,7 +11,7 @@ $string['config_showdescriptions'] = 'Show descriptions';
 $string['config_showdescriptions_help'] = 'Show or hide the description banners in the block.';
 
 // Block content
-$string['test_completed'] = 'Socio-Emotional Skills Exploration completed';
+$string['test_completed'] = 'Socio-Emotional Skills Exploration Completed';
 $string['view_full_results'] = 'View Full Results';
 $string['not_logged_in'] = 'You must be logged in to view this content.';
 $string['emotional_intelligence_results'] = 'View your results here';
