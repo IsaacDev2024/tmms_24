@@ -56,8 +56,8 @@ if (!has_capability('block/tmms_24:taketest', $context)) {
 
 $PAGE->set_url('/blocks/tmms_24/view.php', array('cid' => $courseid));
 $PAGE->set_pagelayout('incourse');
-$PAGE->set_title(get_string('test_title', 'block_tmms_24'));
-$PAGE->set_heading(get_string('test_title', 'block_tmms_24'));
+$PAGE->set_title(get_string('pluginname', 'block_tmms_24'));
+$PAGE->set_heading($course->fullname);
 
 $PAGE->requires->css('/blocks/tmms_24/styles.css');
 

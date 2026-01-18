@@ -7,11 +7,13 @@
 
     {{#in_progress}}
         {{#description_short}}
+        {{#show_descriptions}}
             <div class="tmms-description mb-3" style="background: white; padding: 10px 12px; border-radius: 5px; border-left: 3px solid #ff6600;">
                 <small class="text-muted" style="line-height: 1.5;">
                     <i class="fa fa-info-circle" style="color: #ff6600;"></i> {{description_short}}
                 </small>
             </div>
+        {{/show_descriptions}}
         {{/description_short}}
 
         {{#all_answered}}
@@ -39,6 +41,7 @@
     {{/in_progress}}
 
     {{^in_progress}}
+    {{#show_descriptions}}
         <div class="tmms-description mb-3">
             <div class="card border-info">
                 <div class="card-body p-3">
@@ -54,6 +57,7 @@
                 </div>
             </div>
         </div>
+    {{/show_descriptions}}
     {{/in_progress}}
 
     <div class="tmms-actions text-center">

@@ -37,10 +37,8 @@ $gender_filter = optional_param('gender_filter', 'all', PARAM_ALPHA);
 $PAGE->set_url('/blocks/tmms_24/teacher_view.php', ['courseid' => $courseid]);
 $PAGE->set_pagelayout('standard');
 $title = get_string('tmms_24_dashboard', 'block_tmms_24');
-$PAGE->set_title($title . ' : ' . $course->fullname);
-$PAGE->set_heading($course->fullname);
-$PAGE->navbar->add(get_string('pluginname', 'block_tmms_24'));
-$PAGE->navbar->add(get_string('all_results_title', 'block_tmms_24'));
+$PAGE->set_title($title . " : " . $course->fullname);
+$PAGE->set_heading($title . " : " . $course->fullname);
 
 $PAGE->requires->css('/blocks/tmms_24/styles.css');
 

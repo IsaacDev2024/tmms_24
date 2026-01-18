@@ -45,6 +45,8 @@ Este repositorio incluye:
   - Acceso a **vista individual** por estudiante.
   - Posibilidad de **eliminación** de resultados individuales.
   - **Exportación** de resultados completados del curso o individuales en **CSV** o **JSON**.
+- Opción para **mostrar/ocultar** las descripciones en el bloque principal **(oculto por defecto)**.
+- **Controles de privacidad**: acceso restringido por capacidades y por matrícula en el curso.
 ---
 
 ## Recorrido Visual
@@ -55,14 +57,14 @@ Este repositorio incluye:
 
 El recorrido comienza con una invitación clara y directa. Desde el bloque principal del curso, el estudiante puede visualizar su estado actual y acceder al test con un solo click, facilitando la participación sin fricciones.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/b53cbf52-be01-4177-8c3d-da316efa36f5" alt="Invitación al Test" width="528">
+  <img src="https://github.com/user-attachments/assets/a76dfd57-77c2-40f7-a04e-ce11ddeec7a2" alt="Invitación al Test" width="528">
 </p>
 
 **Interfaz de Evaluación Optimizada**
 
 Se presenta un entorno de respuesta limpio y libre de distracciones. La interfaz ha sido diseñada para priorizar la legibilidad y la facilidad de uso, permitiendo que el estudiante se concentre totalmente en el proceso de autodescubrimiento.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/d2f05a82-1168-464e-a7ff-cf4b65311789" alt="Formulario del Test" height="500">
+  <img src="https://github.com/user-attachments/assets/063cabd1-df7b-4c78-bca3-56d05700e610" alt="Formulario del Test" width="528">
 </p>
 
 **Asistencia y Validación en Tiempo Real**
@@ -70,7 +72,7 @@ Se presenta un entorno de respuesta limpio y libre de distracciones. La interfaz
 Para garantizar la integridad de los datos, el sistema implementa una validación inteligente. Si el usuario olvida alguna respuesta, el sistema lo guía visualmente mediante alertas en rojo y un desplazamiento automático hacia los campos pendientes, asegurando una experiencia sin errores.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/c9b5f6e4-315a-4e9a-ae85-1760a7b89f44" alt="Validación" width="528">
+  <img src="https://github.com/user-attachments/assets/ea26734d-d1ee-40f7-bdd6-96d18469c64c" alt="Validación" width="528">
 </p>
 
 **Persistencia de Progreso y Continuidad**
@@ -78,27 +80,27 @@ Para garantizar la integridad de los datos, el sistema implementa una validació
 Entendemos que el tiempo es valioso. Si el estudiante debe interrumpir su sesión, el sistema guarda automáticamente su avance. Al regresar, el bloque muestra el porcentaje de progreso y permite reanudar el test exactamente donde se dejó, resaltando visualmente la siguiente pregunta a responder.
 	
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/0b13adf8-bef9-49aa-b80a-f6af23facdf1" alt="Progreso del Test" height="350">
+  <img src="https://github.com/user-attachments/assets/acaca5d3-e995-4719-988f-2e322152ec46" alt="Progreso del Test" height="350">
   &nbsp;&nbsp;
-  <img src="https://github.com/user-attachments/assets/dfecbb73-9b8a-4f52-a53d-8bc0943daa15" alt="Continuar Test" height="350">
+  <img src="https://github.com/user-attachments/assets/c7b714ab-4499-4884-bfe7-67f26301c27c" alt="Continuar Test" height="350">
 </p>
 
 **Confirmación de Envío Pendiente**
 Si el estudiante ha completado las 44 preguntas pero aún no ha procesado el envío, el bloque muestra una notificación clara y amigable, invitándolo a formalizar la entrega y conocer sus habilidades socio-emocionales.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/531e6251-2ca1-4880-90db-f480b07c1f85" alt="Confirmación de Test Completado" width="528">
+  <img src="https://github.com/user-attachments/assets/c8a4b08a-ac55-40b3-9e29-24cfe43ab8f0" alt="Confirmación de Test Completado" width="528">
 </p>
 
 **Análisis de Perfil y Recomendaciones Personalizadas**
 
 Al finalizar, el estudiante recibe un diagnóstico de sus habilidades socioemocionales. La presentación muestra su puntaje y una interpretación clara de cada una de sus dimensiones destacadas, así como del resto de las dimensiones evaluadas. El estudiante tiene la opción de acceder a un informe detallado, donde puede consultar toda la información completa y profundizar en sus resultados.
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/5e9fb47d-704b-4a82-b1c7-989deea38b22" alt="Resultados del Estudiante" width="528">
+  <img src="https://github.com/user-attachments/assets/806c2408-0021-4d65-8bf1-5a3c3c571cb5" alt="Resultados del Estudiante" width="528">
 </p>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/282667f4-27cd-4263-a949-f7e50fe54404" alt="Resultados del Estudiante" width="800">
+  <img src="https://github.com/user-attachments/assets/185a607d-c0d9-4cf6-8abc-6a2543f81072" alt="Resultados del Estudiante" width="800">
 </p>
 
 ### 2. Experiencia del Profesor
@@ -108,7 +110,7 @@ Al finalizar, el estudiante recibe un diagnóstico de sus habilidades socioemoci
 El profesor cuenta con una vista ejecutiva desde el bloque, donde puede monitorizar métricas clave, además de acceder a funciones avanzadas de administración.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/86dfc8b3-af2e-42ce-856f-2e787e67233d" alt="Bloque del Profesor" width="528">
+  <img src="https://github.com/user-attachments/assets/d688b027-bac4-49ba-abe0-ef0196986628" alt="Bloque del Profesor" width="528">
 </p>
 
 **Centro de Gestión y Analíticas**
@@ -116,12 +118,12 @@ El profesor cuenta con una vista ejecutiva desde el bloque, donde puede monitori
 Un panel de administración que centraliza el seguimiento grupal. Permite visualizar quiénes han completado el proceso, quiénes están en curso y gestionar los resultados colectivos para adaptar la estrategia pedagógica del aula.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/45a0a16d-eb2a-4ec3-bbaa-462ce5aba67a" alt="Panel de Administración" width="800">
+  <img src="https://github.com/user-attachments/assets/d4c67b35-91ee-499c-924d-9ba859c1e219" alt="Panel de Administración" width="800">
 </p>
 
 **Seguimiento Individualizado y Detallado**
 
-El docente puede profundizar en la orientación vocacional específica de cada estudiante. Esta vista permite comprender las necesidades particulares de cada alumno y las recomendaciones sugeridas por el sistema para brindar un apoyo docente más humano y dirigido.
+El docente puede profundizar en las habilidades socioemocionales de cada estudiante. Esta vista permite comprender las necesidades particulares de cada alumno y las recomendaciones sugeridas por el sistema para brindar un apoyo docente más humano y dirigido.
 
 - **Nota:** Esta vista es la misma que la del estudiante, pero accesible por el profesor para cualquier alumno del curso con explicaciones sobre el resultado.
 
@@ -189,7 +191,7 @@ Uso en el bloque:
 **Guardado progresivo (autosave)**
 
 - Implementado en el formulario de `view.php`.
-- Tras cualquier cambio (ítems, edad, género), se encola un autosave y se ejecuta tras **2 segundos** de inactividad.
+- Tras cualquier cambio (ítems, edad, género), se encola un autosave y se ejecuta tras **400 milisegundos** de inactividad.
 - El autosave envía un POST a `save.php` con `ajax=1` y `auto_save=1`.
 - Comportamiento importante: si aún no existe registro y no hay datos (ni demografía ni respuestas), el autosave no crea filas.
 

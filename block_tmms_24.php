@@ -504,7 +504,7 @@ class block_tmms_24 extends block_base {
     }
     
     function has_config() {
-        return false;
+        return true;
     }
     
     private function get_student_results($entry) {
@@ -559,6 +559,7 @@ class block_tmms_24 extends block_base {
         // Datos comunes para pasar al template
         $data = [
             'icon' => $this->get_tmms_24_icon('4em', 'display: block;', false),
+            'show_descriptions' => !empty($this->config->showdescriptions),
             'title' => get_string('test_completed', 'block_tmms_24'),
             'subtitle' => get_string('emotional_intelligence_results', 'block_tmms_24'),
             'description' => get_string('test_description_short', 'block_tmms_24'),
@@ -693,6 +694,7 @@ class block_tmms_24 extends block_base {
         
         $data = [
             'icon' => $this->get_tmms_24_icon('4em', '', true),
+            'show_descriptions' => !empty($this->config->showdescriptions),
             'title' => get_string('emotional_intelligence_test', 'block_tmms_24'),
             'subtitle' => get_string('discover_your_emotional_skills', 'block_tmms_24'),
         ];
