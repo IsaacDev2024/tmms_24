@@ -62,7 +62,6 @@ $enrolled_users = get_enrolled_users($context, 'block/tmms_24:taketest', 0, 'u.i
 $student_ids = array();
 foreach ($enrolled_users as $user) {
     $candidateid = (int)$user->id;
-    if (is_siteadmin($candidateid)) continue;
     if (has_capability('block/tmms_24:viewallresults', $context, $candidateid)) continue;
     $student_ids[] = $candidateid;
 }
