@@ -35,9 +35,6 @@ $enrolled_ids = array();
 foreach ($enrolled_users as $user) {
     $candidateid = (int)$user->id;
     // Defensive: exclude teachers/managers/siteadmins from exports.
-    if (is_siteadmin($candidateid)) {
-        continue;
-    }
     if (has_capability('block/tmms_24:viewallresults', $context, $candidateid)) {
         continue;
     }
