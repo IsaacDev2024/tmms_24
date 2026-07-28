@@ -23,7 +23,7 @@ if (!$DB->record_exists('block_instances', array('blockname' => 'tmms_24', 'pare
     redirect(new moodle_url('/course/view.php', array('id' => $courseid)));
 }
 
-if (!has_capability('block/tmms_24:viewallresults', $context)) {
+if (!has_capability('block/tmms_24:viewstudentdata', $context)) {
     redirect(new moodle_url('/course/view.php', ['id' => $courseid]));
 }
 
@@ -35,7 +35,7 @@ $search = optional_param('search', '', PARAM_NOTAGS);
 $gender_filter = optional_param('gender_filter', 'all', PARAM_ALPHA);
 
 $PAGE->set_url('/blocks/tmms_24/teacher_view.php', ['courseid' => $courseid]);
-$PAGE->set_pagelayout('standard');
+$PAGE->set_pagelayout('incourse');
 $title = get_string('tmms_24_dashboard', 'block_tmms_24');
 $PAGE->set_title($title . " : " . $course->fullname);
 $PAGE->set_heading($title . " : " . $course->fullname);
@@ -62,7 +62,7 @@ $enrolled_users = get_enrolled_users($context, 'block/tmms_24:taketest', 0, 'u.i
 $student_ids = array();
 foreach ($enrolled_users as $user) {
     $candidateid = (int)$user->id;
-    if (has_capability('block/tmms_24:viewallresults', $context, $candidateid)) continue;
+    if (has_capability('block/tmms_24:viewstudentdata', $context, $candidateid)) continue;
     $student_ids[] = $candidateid;
 }
 
@@ -70,7 +70,7 @@ foreach ($enrolled_users as $user) {
 // DELETE ACTION
 // -------------------------------------------------------------------------
 if ($action === 'delete' && $entryid) {
-    if (!has_capability('moodle/course:manageactivities', $context)) {
+    if (!has_capability('block/tmms_24:deletestudentdata', $context)) {
         redirect(new moodle_url('/course/view.php', array('id' => $courseid)));
     }
 
@@ -394,7 +394,7 @@ foreach ($paged_results as $result) {
         'view_results_url' => (new moodle_url('/blocks/tmms_24/student_results.php', ['courseid' => $courseid, 'userid' => $result->user]))->out(false),
         'download_csv_url' => (new moodle_url('/blocks/tmms_24/export.php', ['cid' => $courseid, 'userid' => $result->user, 'format' => 'csv']))->out(false),
         'download_json_url' => (new moodle_url('/blocks/tmms_24/export.php', ['cid' => $courseid, 'userid' => $result->user, 'format' => 'json']))->out(false),
-        'can_delete' => has_capability('moodle/course:manageactivities', $context),
+        'can_delete' => has_capability('block/tmms_24:deletestudentdata', $context),
         'delete_url' => (new moodle_url('/blocks/tmms_24/teacher_view.php', ['courseid' => $courseid, 'action' => 'delete', 'id' => $result->id, 'sesskey' => sesskey()]))->out(false)
     ];
 }

@@ -24,7 +24,7 @@ if (!$DB->record_exists('block_instances', array('blockname' => 'tmms_24', 'pare
     redirect(new moodle_url('/course/view.php', array('id' => $courseid)));
 }
 
-if (!has_capability('block/tmms_24:viewallresults', $context)) {
+if (!has_capability('block/tmms_24:viewstudentdata', $context)) {
     redirect(new moodle_url('/course/view.php', ['id' => $courseid]));
 }
 // Prevent looking up users outside this course.

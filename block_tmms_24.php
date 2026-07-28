@@ -475,25 +475,28 @@ class block_tmms_24 extends block_base {
             $this->content->text = get_string('not_logged_in', 'block_tmms_24');
             return $this->content;
         }
+
+        // Force the block's palette and CTA styles instead of inheriting the theme primary button.
+        $this->page->requires->css('/blocks/tmms_24/styles.css');
         
         $context = context_course::instance($COURSE->id);
 
-        if (has_capability('block/tmms_24:viewallresults', $context)) {
-            $this->content->text = $this->get_management_summary();
+        if (has_capability('block/tmms_24:viewstudentdata', $context)) {
+            $this->content->text = '<div class="block_tmms_24">' . $this->get_management_launcher() . '</div>';
         } else if (has_capability('block/tmms_24:taketest', $context)) {
             // Check if completed (is_completed = 1)
             $entry = $DB->get_record('tmms_24', ['user' => $USER->id]);
             
             if ($entry && $entry->is_completed == 1) {
                 // Show enhanced results directly in the block
-                $this->content->text = '<div id="tmms-results-container">' . 
+                $this->content->text = '<div class="block_tmms_24"><div id="tmms-results-container">' .
                                       $this->get_student_results($entry) . 
-                                      '</div>';
+                                      '</div></div>';
             } else {
                 // Show enhanced test invitation (checks is_completed inside)
-                $this->content->text = '<div id="tmms-invitation-container">' . 
+                $this->content->text = '<div class="block_tmms_24"><div id="tmms-invitation-container">' .
                                       $this->get_test_invitation() . 
-                                      '</div>';
+                                      '</div></div>';
             }
         } else {
             // Users without either capability (e.g. guests/roles without taketest) see no TMMS content.
@@ -761,12 +764,24 @@ class block_tmms_24 extends block_base {
         $data['link_url'] = (new moodle_url('/blocks/tmms_24/view.php', $url_params))->out(false);
         
         if ($data['button_class'] != 'btn-success') {
-             $data['button_style'] = 'background-color: #ff6600; border-color: #ff6600; color: white;';
+             $data['button_style'] = 'background: linear-gradient(135deg, #ff7a1a 0%, #e85d00 100%) !important; border-color: #ff6600 !important; color: #fff !important;';
         }
 
         return $OUTPUT->render_from_template('block_tmms_24/test_invitation', $data);
     }
     
+    private function get_management_launcher() {
+        global $COURSE, $OUTPUT;
+
+        return $OUTPUT->render_from_template('block_tmms_24/admin_launcher', [
+            'icon_html' => $this->get_tmms_24_icon('4em', '', true),
+            'security_label' => get_string('sensitive_data', 'block_tmms_24'),
+            'title' => get_string('management_title', 'block_tmms_24'),
+            'admin_url' => (new moodle_url('/blocks/tmms_24/teacher_view.php', ['courseid' => $COURSE->id]))->out(false),
+            'button_label' => get_string('open_admin_panel', 'block_tmms_24'),
+        ]);
+    }
+
     private function get_management_summary() {
         global $DB, $COURSE, $OUTPUT;
         

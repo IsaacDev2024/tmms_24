@@ -5,6 +5,17 @@ All notable changes to the TMMS-24 Moodle Block will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.4] — 2026-07-28
+
+### Changed
+- Replaced the course-page metrics view with a compact, consistent launcher for authorised users to open the administration panel.
+- Refined the student and management views, styles, and bilingual permission labels for the renewed exploration flow.
+
+### Security
+- Added `viewstudentdata` and `deletestudentdata` capabilities to separate viewing/exporting sensitive data from deleting responses.
+- Teachers no longer receive automatic access to sensitive student data.
+- Removed the unused legacy capabilities `viewallresults` and `manageresponses`.
+
 ## [3.0.3] — 2026-01-18
 
 ### Corregido

@@ -24,16 +24,6 @@ $capabilities = array(
         'clonepermissionsfrom' => 'moodle/my:manageblocks'
     ),
 
-    'block/tmms_24:viewallresults' => array(
-        'captype' => 'read',
-        'contextlevel' => CONTEXT_COURSE,
-        'archetypes' => array(
-            'teacher' => CAP_ALLOW,
-            'editingteacher' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-        )
-    ),
-
     'block/tmms_24:taketest' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
@@ -42,13 +32,17 @@ $capabilities = array(
         )
     ),
 
-    'block/tmms_24:manageresponses' => array(
+    // Los resultados socioemocionales requieren una concesión explícita.
+    'block/tmms_24:viewstudentdata' => array(
+        'riskbitmask' => RISK_PERSONAL,
+        'captype' => 'read',
+        'contextlevel' => CONTEXT_COURSE
+    ),
+
+    'block/tmms_24:deletestudentdata' => array(
+        'riskbitmask' => RISK_DATALOSS | RISK_PERSONAL,
         'captype' => 'write',
-        'contextlevel' => CONTEXT_COURSE,
-        'archetypes' => array(
-            'editingteacher' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-        )
+        'contextlevel' => CONTEXT_COURSE
     ),
 
 );

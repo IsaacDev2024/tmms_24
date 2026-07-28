@@ -40,7 +40,7 @@ if (!$DB->record_exists('block_instances', array('blockname' => 'tmms_24', 'pare
 }
 
 // Teachers/managers should not take the test; redirect them with a friendly message.
-if (has_capability('block/tmms_24:viewallresults', $context)) {
+if (has_capability('block/tmms_24:viewstudentdata', $context)) {
     redirect(
         new moodle_url('/blocks/tmms_24/teacher_view.php', ['courseid' => $courseid]),
         get_string('teachers_cannot_take_test', 'block_tmms_24'),
@@ -121,7 +121,7 @@ if ($entry && (int)$entry->is_completed === 1) {
     echo "<div class='results-actions mt-4'>";
     
     // Solo profesores/administradores pueden descargar resultados
-    if (has_capability('block/tmms_24:viewallresults', context_course::instance($courseid))) {
+    if (has_capability('block/tmms_24:viewstudentdata', context_course::instance($courseid))) {
         echo "<a href='" . new moodle_url('/blocks/tmms_24/export.php', array('cid' => $courseid, 'format' => 'csv')) . "' class='btn btn-success'>" . get_string('download_csv', 'block_tmms_24') . "</a> ";
         echo "<a href='" . new moodle_url('/blocks/tmms_24/export.php', array('cid' => $courseid, 'format' => 'json')) . "' class='btn btn-success'>" . get_string('download_json', 'block_tmms_24') . "</a> ";
     }

@@ -1,10 +1,13 @@
 <?php
+$string['tmms_24:viewstudentdata'] = 'Ver datos sensibles de estudiantes';
+$string['tmms_24:deletestudentdata'] = 'Eliminar datos sensibles de estudiantes';
+$string['sensitive_data'] = 'Datos sensibles';
+$string['open_admin_panel'] = 'Abrir panel de administración';
 $string['pluginname'] = 'Exploración de Habilidades Socioemocionales';
 $string['tmms_24'] = 'TMMS-24';
 $string['tmms_24:addinstance'] = 'Agregar un nuevo bloque TMMS-24';
 $string['tmms_24:myaddinstance'] = 'Agregar un nuevo bloque TMMS-24 a la página Mi Moodle';
 $string['tmms_24:taketest'] = 'Realizar el test TMMS-24';
-$string['tmms_24:viewallresults'] = 'Ver todos los resultados TMMS-24';
 
 // Configuración
 $string['config_showdescriptions'] = 'Mostrar descripciones';

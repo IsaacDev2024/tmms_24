@@ -23,7 +23,7 @@ $context = context_course::instance($courseid);
 
 require_login($course);
 
-if (!has_capability('block/tmms_24:viewallresults', $context)) {
+if (!has_capability('block/tmms_24:viewstudentdata', $context)) {
     redirect(new moodle_url('/course/view.php', ['id' => $courseid]));
 }
 
@@ -35,7 +35,7 @@ $enrolled_ids = array();
 foreach ($enrolled_users as $user) {
     $candidateid = (int)$user->id;
     // Defensive: exclude teachers/managers/siteadmins from exports.
-    if (has_capability('block/tmms_24:viewallresults', $context, $candidateid)) {
+    if (has_capability('block/tmms_24:viewstudentdata', $context, $candidateid)) {
         continue;
     }
     $enrolled_ids[] = $candidateid;

@@ -18,7 +18,7 @@ $course = $DB->get_record('course', array('id' => $courseid), '*', MUST_EXIST);
 $context = context_course::instance($courseid);
 
 require_login($course);
-if (!has_capability('block/tmms_24:viewallresults', $context) || !has_capability('moodle/course:manageactivities', $context)) {
+if (!has_capability('block/tmms_24:deletestudentdata', $context)) {
     redirect(new moodle_url('/course/view.php', ['id' => $courseid]));
 }
 

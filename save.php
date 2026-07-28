@@ -41,7 +41,7 @@ $context = context_course::instance($courseid);
 require_login($course);
 
 // Teachers/managers should not submit TMMS-24.
-if (has_capability('block/tmms_24:viewallresults', $context)) {
+if (has_capability('block/tmms_24:viewstudentdata', $context)) {
     if ($is_ajax) {
         echo json_encode(['success' => false, 'error' => 'no_permission']);
         die();

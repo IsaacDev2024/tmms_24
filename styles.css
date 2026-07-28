@@ -662,6 +662,19 @@
     color: #fff !important;
 }
 
+/* The SAVIO theme also styles .btn-primary. Keep the student CTA in TMMS orange. */
+.block_tmms_24 .tmms-invitation-block .tmms-actions .btn.btn-primary {
+    background: linear-gradient(135deg, #ff7a1a 0%, #e85d00 100%) !important;
+    border-color: #ff6600 !important;
+    color: #fff !important;
+}
+
+.block_tmms_24 .tmms-invitation-block .tmms-actions .btn.btn-primary:hover {
+    background: linear-gradient(135deg, #e85d00 0%, #cc5200 100%) !important;
+    border-color: #cc5200 !important;
+    color: #fff !important;
+}
+
 /* Invitation Block Styles */
 .block_tmms_24 .tmms-invitation-block {
     padding: 15px !important;
